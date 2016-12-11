@@ -1,0 +1,28 @@
+{
+  "name": "kof",
+  "version": "0.0.1",
+  "description": "King of fighter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenzhutian/KOF.git"
+  },
+  "keywords": [
+    "javascript",
+    "performance",
+    "playground"
+  ],
+  "author": "zhutian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenzhutian/KOF/issues"
+  },
+  "homepage": "https://github.com/chenzhutian/KOF#readme",
+  "devDependencies": {
+    "typescript": "^2.1.4",
+    "webpack": "^2.1.0-beta.27"
+  }
+}

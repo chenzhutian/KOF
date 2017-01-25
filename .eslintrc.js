@@ -19,6 +19,25 @@ module.exports = {
     },
     // add your custom rules here
     'rules': {
+        "indent": [
+            2,
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "no-restricted-syntax": [
+            'error',
+            'ForInStatement',
+            'LabeledStatement',
+            'WithStatement',
+        ],
+        "no-plusplus": ["error", {
+            "allowForLoopAfterthoughts": true
+        }],
+        "import/no-extraneous-dependencies": [2, {
+            devDependencies: true
+        }],
         // don't require .vue extension when importing
         'import/extensions': ['error', 'always', {
             'js': 'never',

@@ -28,6 +28,9 @@ module.exports = {
         fallback: [path.join(__dirname, '../node_modules')]
     },
     module: {
+        noParse:[
+            /benchmark/,
+        ],
         preLoaders: [{
             test: /\.vue$/,
             loader: 'eslint',

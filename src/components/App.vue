@@ -1,20 +1,21 @@
 <template>
     <div id="app">
-        <img src="./assets/logo.png">
-        <hello></hello>
+        <img src="../assets/logo.png">
+        <main-page></main-page>
     </div>
 </template>
 <script>
-import Hello from './components/Hello';
+import MainPage from './MainPage';
 
 export default {
     name: 'app',
     components: {
-        Hello,
+        MainPage,
     },
 };
 </script>
-<style>
+<style lang="scss">
+    @import '../styles/grid/grid';
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;

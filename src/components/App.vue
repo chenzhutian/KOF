@@ -15,7 +15,7 @@ export default {
 };
 </script>
 <style lang="scss">
-    @import '../styles/grid/grid';
+    @import '../styles/grid';
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;

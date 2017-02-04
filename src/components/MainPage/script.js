@@ -1,18 +1,18 @@
-import * as ts from 'typescript';
+import { transpileModule, ScriptTarget } from 'typescript';
 import * as babel from 'babel-standalone';
 
-// import _ from 'lodash';
-// // import process from 'process';
-// import platform from 'platform';
-// /* global window */
+import _ from 'lodash';
+// import process from 'process';
+import platform from 'platform';
+/* global window */
 
-// // const benchmark = require('benchmark');
-// import * as benchmark from 'benchmark';
+// const benchmark = require('benchmark');
+import * as benchmark from 'benchmark';
 
-// const Benchmark = benchmark.runInContext({ _, platform });
-// if (typeof window === 'object') window.Benchmark = Benchmark;
+const Benchmark = benchmark.runInContext({ _, platform });
+if (typeof window === 'object') window.Benchmark = Benchmark;
 
-import Benchmark from '../../services/benchmark';
+// import Benchmark from '../../services/benchmark';
 
 export default {
     name: 'hello',
@@ -42,9 +42,9 @@ export default {
             return src.replace('"use strict";', '');
         },
         tsParser(src) {
-            const code = ts.transpileModule(src, {
+            const code = transpileModule(src, {
                 compilerOptions: {
-                    target: ts.ScriptTarget.ES5,
+                    target: ScriptTarget.ES5,
                 },
             }).outputText;
             return this.removeUseStrict(code);

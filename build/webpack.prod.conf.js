@@ -12,7 +12,7 @@ const env = process.env.NODE_ENV === 'testing' ?
 
 const webpackConfig = merge(baseWebpackConfig, {
     module: {
-        loaders: utils.styleLoaders({
+        rules: utils.styleLoaders({
             sourceMap: config.build.productionSourceMap,
             extract: true
         })
@@ -24,25 +24,19 @@ const webpackConfig = merge(baseWebpackConfig, {
         filename: utils.assetsPath('js/[name].[chunkhash].js'),
         chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
-    vue: {
-        loaders: utils.cssLoaders({
-            sourceMap: config.build.productionSourceMap,
-            extract: true
-        })
-    },
     plugins: [
         // http://vuejs.github.io/vue-loader/en/workflow/production.html
         new webpack.DefinePlugin({
             'process.env': env
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
+        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
         }),
-        new webpack.optimize.OccurrenceOrderPlugin(),
         // extract css into its own file
-        new ExtractTextPlugin(utils.assetsPath('css/[name].[contenthash].css')),
+        new ExtractTextPlugin({
+            filename: utils.assetsPath('css/[name].[contenthash].css')
+        }),
         // generate dist index.html with correct asset hash for caching.
         // you can customize output by editing /index.html
         // see https://github.com/ampedandwired/html-webpack-plugin
@@ -55,8 +49,8 @@ const webpackConfig = merge(baseWebpackConfig, {
                 removeComments: true,
                 collapseWhitespace: true,
                 removeAttributeQuotes: true
-                    // more options:
-                    // https://github.com/kangax/html-minifier#options-quick-reference
+                // more options:
+                // https://github.com/kangax/html-minifier#options-quick-reference
             },
             // necessary to consistently work with multiple chunks via CommonsChunkPlugin
             chunksSortMode: 'dependency'
@@ -100,6 +94,11 @@ if (config.build.productionGzip) {
             minRatio: 0.8
         })
     )
+}
+
+if (config.build.bundleAnalyzerReport) {
+    const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+    webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
 module.exports = webpackConfig

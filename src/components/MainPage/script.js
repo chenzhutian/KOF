@@ -3,18 +3,7 @@ import { UiButton } from 'keen-ui';
 import { transpileModule, ScriptTarget } from 'typescript';
 import { transform } from 'babel-standalone';
 
-import _ from 'lodash';
-// import process from 'process';
-import platform from 'platform';
-/* global window */
-
-// const benchmark = require('benchmark');
-import * as benchmark from 'benchmark';
-
-const Benchmark = benchmark.runInContext({ _, platform });
-if (typeof window === 'object') window.Benchmark = Benchmark;
-
-// import Benchmark from '../../services/benchmark';
+import Benchmark from '../../services/benchmark';
 
 export default {
     name: 'KoF',

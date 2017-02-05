@@ -37,7 +37,7 @@ module.exports = {
     },
     module: {
         noParse: [
-            /benchmark/,
+            /node_modules[/\\]benchmark/
         ],
         rules: [{
                 test: /\.(js|vue)$/,

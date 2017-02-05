@@ -5,6 +5,7 @@
     </div>
 </template>
 <script>
+import 'keen-ui/dist/keen-ui.css';
 import MainPage from './MainPage';
 
 export default {

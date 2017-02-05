@@ -1,6 +1,6 @@
 <div class="main-page grid">
     <div class="control-pane col col-12">
-        <button @click="run" :disabled="running">Run!</button>
+        <ui-button color="primary" raised :disabled="running" @click="run">Run!</ui-button>
     </div>
     <div v-for="(runner, index) in runners" class="runner col col-12">
         <button @click="removeRunner(index)" :disabled="running">X</button>

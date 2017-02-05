@@ -1,5 +1,7 @@
+import { UiButton } from 'keen-ui';
+
 import { transpileModule, ScriptTarget } from 'typescript';
-import * as babel from 'babel-standalone';
+import { transform } from 'babel-standalone';
 
 import _ from 'lodash';
 // import process from 'process';
@@ -15,7 +17,10 @@ if (typeof window === 'object') window.Benchmark = Benchmark;
 // import Benchmark from '../../services/benchmark';
 
 export default {
-    name: 'hello',
+    name: 'KoF',
+    components: {
+        UiButton,
+    },
     data() {
         return {
             runners: [{
@@ -50,7 +55,7 @@ export default {
             return this.removeUseStrict(code);
         },
         babelParser(src) {
-            const code = babel.transform(src, { presets: ['es2015'] }).code;
+            const code = transform(src, { presets: ['es2015'] }).code;
             return this.removeUseStrict(code);
         },
         run() {

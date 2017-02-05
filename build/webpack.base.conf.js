@@ -17,6 +17,7 @@ const vueLoaderOptions = {
         })
     ]
 };
+console.log(isProduction);
 
 module.exports = {
     entry: {

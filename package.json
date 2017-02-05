@@ -4,11 +4,15 @@
   "description": "King of fighter",
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
+    "build": "node build/build.js build",
+    "clean": "node build/build.js clean",
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
+    "pullghpage":"git clone git@github.com:chenzhutianToys/KoF.git -b gh-pages --single-branch dist",
+    "pushghpage":"cd dist && git add --all && git commit -m \"Release at $(date)\" && git push",
+    "deploy":"npm run clean && npm run pullghpage && npm run build && npm run pushghpage"
   },
   "repository": {
     "type": "git",

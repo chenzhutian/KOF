@@ -23,9 +23,7 @@ function build() {
 
     const spinner = ora('building for production...')
     spinner.start()
-
-
-    clean()
+    rm('-rf', assetsPath)
     mkdir('-p', assetsPath)
     cp('-R', 'static/*', assetsPath)
 

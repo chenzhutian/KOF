@@ -8,9 +8,10 @@ const config = require('../config')
 const ora = require('ora')
 const webpack = require('webpack')
 const webpackConfig = require('./webpack.prod.conf')
+const assetsPath = path.join(config.build.assetsRoot, config.assetsSubDirectory)
 
 function clean() {
-    rm('-rf', assetsPath)
+    rm('-rf', config.build.assetsRoot)
 }
 
 function build() {
@@ -23,7 +24,7 @@ function build() {
     const spinner = ora('building for production...')
     spinner.start()
 
-    const assetsPath = path.join(config.build.assetsRoot, config.assetsSubDirectory)
+
     clean()
     mkdir('-p', assetsPath)
     cp('-R', 'static/*', assetsPath)

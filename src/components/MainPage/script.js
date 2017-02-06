@@ -39,6 +39,7 @@ export default {
             const code = transpileModule(src, {
                 compilerOptions: {
                     target: ScriptTarget.ES5,
+                    sourceMap: false,
                 },
             }).outputText;
             return this.removeUseStrict(code);

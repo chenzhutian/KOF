@@ -2,18 +2,34 @@
     <div class="control-pane col col-12">
         <ui-button color="primary" raised :disabled="running" @click="run">Run!</ui-button>
     </div>
-    <div v-for="(runner, index) in runners" class="runner col col-12">
-        <ui-button color="red" raised @click="removeRunner(index)" :disabled="running">X</ui-button>
-        <span>{{index}}</span>
-        <input v-model="runner.title" type="text" :disabled="running" />
-        <input v-model="runner.code" type="text" :disabled="running" />
-        <span>{{runner.info || ""}}</span>
+    <div class="table-responsive grid">
+        <table class="table col col-12">
+            <tbody>
+                <tr v-for="(runner, index) in runners" class="runner col col-12">
+                    <td>
+                        <ui-button color="red" raised @click="removeRunner(index)" :disabled="running">X</ui-button>
+                    </td>
+                    <td>
+                        <span>{{index}}</span>
+                    </td>
+                    <td>
+                        <input v-model="runner.title" type="text" :disabled="running" />
+                    </td>
+                    <td>
+                        <input v-model="runner.code" type="text" :disabled="running" />
+                    </td>
+                    <td>
+                        <span>{{runner.info || ""}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div class="new-runner col col-12">
         <ui-button color="green" @click="addRunner" :disabled="running">+</ui-button>
         <span></span>
         <input v-model="newRunner.title" type="text" :disabled="running" placeholder="name of new test" />
-        <input v-model="newRunner.code" type="text" :disabled="running" placeholder="code of new test"/>
+        <input v-model="newRunner.code" type="text" :disabled="running" placeholder="code of new test" />
     </div>
     <div class="result-stat col col-12">
         {{resultStat}}
